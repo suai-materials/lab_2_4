@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-05 Wed 10:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>МДК 02.02 Инструментальные средства разработки</title>
+<meta name="author" content="Панков Вася" />
+<meta name="description" content="Опалева У.С." />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">МДК 02.02 Инструментальные средства разработки</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga9c069a">1. Лабораторная работа №2-4</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga9c069a" class="outline-2">
+<h2 id="orga9c069a"><span class="section-number-2">1.</span> Лабораторная работа №2-4</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Тема: Разработка структуры проекта. Диаграмма модулей. Перечень артефактов и протоколов. Настройка работы системы контроля версий. Разработка проекта на основании шаблона. 
+</p>
+
+<p>
+Цель: создание модульной структуры проекта в виде диаграммы, разработка перечня артефактов (основных файлов) и протоколов, настройка Git 
+</p>
+
+
+<p>
+Выполнение работы:
+</p>
+
+<p>
+​1. Требуется создать веб-приложение (сайт) на основе имеющегося шаблона. Выбрать Файл &gt; Создать &gt; Проект (Create a new project). Далее в открывшемся окне выбрать Bottle Web Project и нажать Next: 
+</p>
+
+<p>
+Задать название проекта (в наименование должна быть включена фамилия студента) &gt; Create.
+</p>
+
+
+<div id="orgb7a548b" class="figure">
+<p><img src="images/20230323-120448_screenshot.png" alt="20230323-120448_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Создание решения</p>
+</div>
+
+
+<p>
+​2. По умолчанию в редакторе кода откроется файл app.py. Для корректной интерпретации содержимого файла requirements.txt будет предложено создать виртуальное окружение.
+</p>
+
+
+<div id="org29457ff" class="figure">
+<p><img src="images/20230323-120529_screenshot.png" alt="20230323-120529_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Создание виртуальной среды</p>
+</div>
+
+
+<div id="orgb83580e" class="figure">
+<p><img src="images/20230323-121117_screenshot.png" alt="20230323-121117_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Неудачная разработка среды</p>
+</div>
+
+
+
+<p>
+​3. Ознакомиться со структурой проекта, открыв Обозреватель решений (Solution Explorer): 
+</p>
+
+<p>
+В папке static содержатся стилевые css-файлы для оформления внешнего вида веб-страниц, шрифтовые наборы и js-скрипты. 
+</p>
+
+<p>
+Выбрав для просмотра файлы из папки views, можно убедиться, что они представляют собой макеты веб-страниц: главной (index.tpl), о нас (about.tpl), контакты (contact.tpl), а файл layout.tpl – не что иное, как шаблон обёртки с панелью навигации, содержащей четыре гиперссылки: Application name, Home, About, Contact в «шапке» сайта и небольшим «подвалом».
+</p>
+
+
+<div id="org14a1c8d" class="figure">
+<p><img src="images/20230323-120758_screenshot.png" alt="20230323-120758_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Структура проекта</p>
+</div>
+
+
+<div id="orgeec0385" class="figure">
+<p><img src="images/20230323-121247_screenshot.png" alt="20230323-121247_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Удачная установка</p>
+</div>
+
+
+<p>
+​4. Выполнить запуск проекта
+</p>
+
+<p>
+№<img src="images/20230323-121321_screenshot.png" alt="20230323-121321_screenshot.png" />
+</p>
+
+
+<p>
+​​​5. Например, вместо текста заголовка «Bottle» на главной (домашней) странице требуется разместить картинку.
+   Для этого сначала в структуре каталога static создаётся папка images, в которую копируется файл изображения logo<sub>nav.png</sub>.
+   Затем в коде index.tpl удалить строку &lt;h1&gt; Bottle &lt;/h1&gt;, добавить &lt;img src="static\images\logo<sub>nav.png</sub>"&gt;
+   (файл изображения можно скачать с сайта <a href="http://bottlepy.org/docs/dev/index.html">http://bottlepy.org/docs/dev/index.html</a>) и пустой абзац &lt;p&gt; &lt;/p&gt;
+</p>
+
+
+<div id="org6336eed" class="figure">
+<p><img src="images/20230323-122110_screenshot.png" alt="20230323-122110_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Отображение сайта</p>
+</div>
+
+
+<div id="orgb6f2302" class="figure">
+<p><img src="images/20230323-122156_screenshot.png" alt="20230323-122156_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Изменения кода</p>
+</div>
+
+
+<p>
+​6. Требуется создать веб-приложение (тематический сайт) на основе шаблона фреймворка Bottle. Придерживаться следующих этапов:  
+</p>
+
+<ul class="org-ul">
+<li><p>
+Выбрать тематику приложения, согласовать с преподавателем (темы не повторяются!).
+</p>
+
+<p>
+ReportViwer - сайт для просмотра отчётов
+</p></li>
+
+<li><p>
+Подобрать текстовые и графические (иллюстрации, иконки, карты) материалы для сайта.
+</p>
+
+<p>
+Был разработан дизайн в Figma:
+</p>
+
+
+<div id="orge005b48" class="figure">
+<p><img src="images/20230323-122737_screenshot.png" alt="20230323-122737_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Warframe</p>
+</div></li>
+</ul>
+
+
+
+<div id="org6d6bf47" class="figure">
+<p><img src="images/20230323-122438_screenshot.png" alt="20230323-122438_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Дизайн в Figma</p>
+</div>
+
+
+
+<ul class="org-ul">
+<li><p>
+Построить UML-диаграмму компонентов приложения (css-файлы считать одним укрупнённым структурным компонентом, аналогично js-скрипты, их подключение осуществляется в файле layout.tpl).
+</p>
+
+
+<div id="org4d8548c" class="figure">
+<p><img src="images/2023-04-05_10-35-52_screenshot.png" alt="2023-04-05_10-35-52_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 10: </span>UML-диаграммы</p>
+</div></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><p>
+Настроить Git. Хранение проекта осуществлять в репозитории на Github одного из участников, остальные клонируют проект в свой локальный репозиторий. Распределить задачи редактирования файлов шаблонов между членами команды. Изменить содержимое этих файлов согласно выбранной тематике (ссылки на кнопках поставить на нужные страницы похожих по тематике сайтов).
+</p>
+
+<p>
+Репозитоий был создан мной на GitHub
+</p>
+
+
+<div id="org147749c" class="figure">
+<p><img src="images/2023-04-05_09-33-51_screenshot.png" alt="2023-04-05_09-33-51_screenshot.png" />
+</p>
+</div></li>
+
+<li><p>
+Вести контроль версий. Синхронизировать все локальные изменения с удалённым репозиторием на Github.
+</p>
+
+<p>
+В итоге были получены такие изменения от всех пользователей:
+</p>
+
+<div id="orga417ba7" class="figure">
+<p><img src="images/2023-04-05_09-35-15_screenshot.png" alt="2023-04-05_09-35-15_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 11: </span>Изменения от всех пользователей</p>
+</div>
+
+<p>
+Моя часть работы состояла, в создание основной части приложения, то есть редактора текстовых документов:
+</p>
+<ul class="org-ul">
+<li><p>
+Вид без авторизации:
+</p>
+
+
+<div id="org5ea60f8" class="figure">
+<p><img src="images/2023-04-05_09-41-07_screenshot.png" alt="2023-04-05_09-41-07_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 12: </span>Вид, без авторизации</p>
+</div></li>
+
+<li><p>
+Вид, после авторизации, с выбранным файлом
+</p>
+
+<div id="org765d39d" class="figure">
+<p><img src="images/2023-04-05_09-42-23_screenshot.png" alt="2023-04-05_09-42-23_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 13: </span>Просмотр текстового файла</p>
+</div></li>
+
+<li><p>
+Просмотр картинки
+</p>
+
+<div id="org72d932f" class="figure">
+<p><img src="images/2023-04-05_09-43-05_screenshot.png" alt="2023-04-05_09-43-05_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 14: </span>Просмотр картинок</p>
+</div></li>
+</ul></li>
+
+<li><p>
+Заполнить файл README.md. Примерный вариант описания можно найти в шаблоне <a href="https://gist.github.com/PurpleBooth/109311bb0361f32d87a2">https://gist.github.com/PurpleBooth/109311bb0361f32d87a2</a> или по ссылке <a href="https://github.com/Sinclear/default_readme">https://github.com/Sinclear/default_readme</a>
+</p>
+
+<div id="orgebe0806" class="figure">
+<p><img src="images/2023-04-05_10-36-38_screenshot.png" alt="2023-04-05_10-36-38_screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 15: </span>README файл</p>
+</div></li>
+</ul>
+
+
+<p>
+Контрольные вопросы:
+</p>
+<ol class="org-ol">
+<li><p>
+Каково основное назначение UML-диаграмм и их роль в разработке приложений?
+</p>
+
+<p>
+Основное назначение UML-диаграмм и их роль в разработке приложений заключается в хорошем проектировании приложения перед его непосредственным кодированием. 
+</p></li>
+<li><p>
+Можно ли считать артефактами веб-страницы сайта? Обоснуйте ответ
+</p>
+
+<p>
+Да, веб-страницы сайта можно считать артефактами, так как это информационные элементы, которые тем или иным способом используются при работе программной системы и входят в ее состав.
+</p></li>
+<li><p>
+Предпочтительнее ли протокол HTTPS протоколу HTTP? Почему (да / нет)?
+</p>
+
+<p>
+Да, так как протокол HTTPS является расширением протокола HTTP, добавляющий поддержку шифрования в целях повышения безопасности. Также протокол HTTPS является стандартом даже для не самых крупных сайтов сейчас. 
+</p></li>
+<li><p>
+Что значит код ответа сервера «200»? Какие ещё группы и коды ответов вы знаете (привести по 1-2 примера из каждой группы)?
+</p>
+
+<p>
+Коды сгруппированы в 5 классов:
+</p>
+<ol class="org-ol">
+<li><p>
+Информационные 100 – 199
+</p>
+
+<p>
+101 Switching Protocol "В обработке". Этот код указывает, что сервер получил запрос и обрабатывает его, но обработка ещё не завершена.
+</p>
+
+<p>
+100 Continue "Продолжить". Этот промежуточный ответ указывает, что запрос успешно принят и клиент может продолжать присылать запросы либо проигнорировать этот ответ, если запрос был завершён.
+</p></li>
+
+<li><p>
+Успешные 200 – 299
+</p>
+
+<p>
+200 OK "Успешно". Запрос успешно обработан. Что значит "успешно", зависит от метода HTTP, который был запрошен.
+</p>
+
+<p>
+202 Accepted "Принято". Запрос принят, но ещё не обработан. Не поддерживаемо, т.е., нет способа с помощью HTTP отправить асинхронный ответ позже, который будет показывать итог обработки запроса. Это предназначено для случаев, когда запрос обрабатывается другим процессом или сервером, либо для пакетной обработки.
+</p></li>
+
+<li><p>
+Перенаправления 300 – 399
+</p>
+
+<p>
+301 Moved Permanently "Перемещён на постоянной основе". Этот код ответа значит, что URI запрашиваемого ресурса был изменён. Возможно, новый URI будет предоставлен в ответе.
+</p>
+
+<p>
+304 Not Modified "Не модифицировано". Используется для кеширования. Это код ответа значит, что запрошенный ресурс не был изменён. Таким образом, клиент может продолжать использовать кешированную версию ответа.
+</p></li>
+
+<li><p>
+Клиентские ошибки 400 – 499
+</p>
+
+<p>
+400 Bad Request "Плохой запрос". Этот ответ означает, что сервер не понимает запрос из-за неверного синтаксиса.
+</p>
+
+<p>
+401 "Неавторизованно". Для получения запрашиваемого ответа нужна аутентификация. Статус похож на статус 403, но, в этом случае, аутентификация возможна.
+</p></li>
+
+<li><p>
+Серверные ошибки 500 – 599
+</p>
+
+<p>
+500 Internal Server Error "Внутренняя ошибка сервера". Сервер столкнулся с ситуацией, которую он не знает, как обработать.
+</p>
+
+<p>
+504 Gateway Timeout Этот ответ об ошибке предоставляется, когда сервер действует как шлюз и не может получить ответ вовремя.
+</p></li>
+</ol></li>
+
+<li><p>
+Какую систему защиты и сертификации данных использует Git по умолчанию?
+</p>
+
+<p>
+По умолчанию Git использует для защиты и сертификации данных систему SSH.
+</p></li>
+<li><p>
+Что значит «клонировать» репозиторий в терминах Git?
+</p>
+
+<p>
+«Клонировать» репозиторий в терминах Git означает полный перенос удалённого репозитория на локальную машину с помощью команды git clone.
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Панков Вася</p>
+<p class="date">Created: 2023-04-05 Wed 10:40</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

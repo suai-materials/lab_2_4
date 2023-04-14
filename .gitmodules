@@ -1,0 +1,3 @@
+[submodule "report_viewer"]
+	path = report_viewer
+	url = https://github.com/pank-su/report_viewer.git
